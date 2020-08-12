@@ -24,7 +24,7 @@ x = 7
 
 If you find yourself writing that a lot, you should probably define a command like
 
-```
+```plaintext
 \newcommand{\prettyshow}[1]{@@code-output \show{#1} @@}
 ```
 
