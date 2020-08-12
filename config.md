@@ -6,3 +6,6 @@
 
 <!-- supports question 001 -->
 @def members_from_csv = eachrow(readdlm("_assets/members.csv", ',', skipstart=1))
+
+<!-- supports question 003 -->
+\newcommand{\prettyshow}[1]{@@code-output \show{#1} @@}

@@ -10,6 +10,28 @@ It's not meant to be beautiful, rather just show how to get specific stuff done.
 
 \toc
 
+## (003) styling of code output blocks
+
+At the moment (August 2020) no particular class is added on an output (see https://github.com/tlienart/Franklin.jl/issues/531); you can still do something similar by adding a `@@code-output` (or whatever appropriate name) around the command that extracts the output and specify this in your css (see `extras.css`):
+
+```julia:cos1
+x = 7
+```
+
+@@code-output
+\show{cos1}
+@@
+
+If you find yourself writing that a lot, you should probably define a command like
+
+```
+\newcommand{\prettyshow}[1]{@@code-output \show{#1} @@}
+```
+
+and put it in your `config.md` file so that it's globally available.
+
+\prettyshow{cos1}
+
 ## (002) code block scope
 
 On a single page all code blocks share their environment so
