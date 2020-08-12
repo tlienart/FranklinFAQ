@@ -10,7 +10,21 @@ It's not meant to be beautiful, rather just show how to get specific stuff done.
 
 \toc
 
+## (002) code block scope
 
+On a single page all code blocks share their environment so
+
+```julia:cbs1
+x = 5
+```
+
+then
+
+```julia:cbs2
+y = x+2
+```
+
+\show{cbs2}
 
 ## (001) how to load data from file and loop over rows
 
