@@ -1,0 +1,33 @@
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/FranklinFAQ/libs/highlight/github.min.css"> <link rel=stylesheet  href="/FranklinFAQ/css/franklin.css"> <title>Franklin FAQ</title> <div class=franklin-content ><h1 id=franklin_faq ><a href="#franklin_faq">Franklin FAQ</a></h1> <p>This website is meant to be a quick way to show how to do stuff that people ask, it will complement the <a href="https://franklinjl.org/">official documentation</a>.</p> <p>It&#39;s not meant to be beautiful, rather just show how to get specific stuff done.</p> <p><strong>Note</strong>: an important philosophy here is that if you can write a Julia function that would produce the HTML you want, then write that function and let Franklin call it.</p> <div class=franklin-toc ><ol><li><a href="#001_how_to_load_data_from_file_and_loop_over_rows">&#40;001&#41; how to load data from file and loop over rows</a><ol><li><a href="#approach_1_with_a_hfun">Approach 1, with a <code>hfun</code></a><li><a href="#approach_2_with_a_page_variable_and_a_for_loop">Approach 2, with a page variable and a for loop</a></ol></ol></div> <h2 id=001_how_to_load_data_from_file_and_loop_over_rows ><a href="#001_how_to_load_data_from_file_and_loop_over_rows">&#40;001&#41; how to load data from file and loop over rows</a></h2> <p>This was asked on Slack with the hope it could mimick the <a href="https://jekyllrb.com/docs/datafiles/">Data Files</a> functionality of Jekyll where you would have a file like</p> <pre><code class="julia hljs">name,github
+Eric Mill,konklone
+Parker Moore,parkr
+Liu Fengyun,liufengyun</code></pre> <p>and you&#39;d want to loop over that and do something with it.</p> <p><strong>Relevant pieces</strong>:</p> <ul> <li><p>see <code>_assets/members.csv</code> &#40;content is the code block above&#41;</p> </ul> <h3 id=approach_1_with_a_hfun ><a href="#approach_1_with_a_hfun">Approach 1, with a <code>hfun</code></a></h3> <ul> <li><p>see <code>utils.jl</code> for the definition of <code>hfun_members_table</code>; calling <code>&#123;&#123;members_table _assets/members.csv&#125;&#125;</code> gives</p> </ul> <table><tr><th>Name<th>GitHub alias<tr><td>Parker Moore<td><a href="https://github.com/parkr">parkr</a><tr><td>Liu Fengyun<td><a href="https://github.com/liufengyun">liufengyun</a></table> <h3 id=approach_2_with_a_page_variable_and_a_for_loop ><a href="#approach_2_with_a_page_variable_and_a_for_loop">Approach 2, with a page variable and a for loop</a></h3> <ul> <li><p>see <code>config.md</code> for the definition of the <code>members_from_csv</code><em>global</em> page variable.</p> </ul> <p>Writing the following</p> <pre><code class="html hljs">~~~\n<span class=hljs-tag >&lt;<span class=hljs-name >ul</span>&gt;</span>\n{{for (name, alias) in members_from_csv}}\n  <span class=hljs-tag >&lt;<span class=hljs-name >li</span>&gt;</span>\n    <span class=hljs-tag >&lt;<span class=hljs-name >a</span> <span class=hljs-attr >href</span>=<span class=hljs-string >&quot;https://github.com/{{fill alias}}&quot;</span>&gt;</span>{{fill name}}<span class=hljs-tag >&lt;/<span class=hljs-name >a</span>&gt;</span>\n  <span class=hljs-tag >&lt;/<span class=hljs-name >li</span>&gt;</span>\n{{end}}\n<span class=hljs-tag >&lt;/<span class=hljs-name >ul</span>&gt;</span>\n~~~</code></pre>
+<p>gives:</p>
+
+<ul>
+
+  <li>
+    <a href="https://github.com/konklone">Eric Mill</a>
+  
+
+  <li>
+    <a href="https://github.com/parkr">Parker Moore</a>
+  
+
+  <li>
+    <a href="https://github.com/liufengyun">Liu Fengyun</a>
+  
+
+</ul>
+
+<p><strong>Notes</strong>:</p>
+<ul>
+<li><p>we use a <em>global</em> page variable so that we don&#39;t reload the CSV file every single time something changes on the caller page.</p>
+
+</ul>
+<div class=page-foot >
+  <div class=copyright >
+    &copy; Thibaut Lienart. Last modified: August 12, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div>
