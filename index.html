@@ -7,6 +7,7 @@
    <link rel="stylesheet" href="/FranklinFAQ/libs/highlight/github.min.css">
    
   <link rel="stylesheet" href="/FranklinFAQ/css/franklin.css">
+  <link rel="stylesheet" href="/FranklinFAQ/css/extras.css">
    <title>Franklin FAQ</title>  
 </head>
 <body>
@@ -16,7 +17,15 @@
 <p>This website is meant to be a quick way to show how to do stuff that people ask, it will complement the <a href="https://franklinjl.org/">official documentation</a>.</p>
 <p>It&#39;s not meant to be beautiful, rather just show how to get specific stuff done.</p>
 <p><strong>Note</strong>: an important philosophy here is that if you can write a Julia function that would produce the HTML you want, then write that function and let Franklin call it.</p>
-<div class="franklin-toc"><ol><li><a href="#002_code_block_scope">&#40;002&#41; code block scope</a></li><li><a href="#001_how_to_load_data_from_file_and_loop_over_rows">&#40;001&#41; how to load data from file and loop over rows</a><ol><li><a href="#approach_1_with_a_hfun">Approach 1, with a <code>hfun</code></a></li><li><a href="#approach_2_with_a_page_variable_and_a_for_loop">Approach 2, with a page variable and a for loop</a></li></ol></li></ol></div>
+<div class="franklin-toc"><ol><li><a href="#003_styling_of_code_output_blocks">&#40;003&#41; styling of code output blocks</a></li><li><a href="#002_code_block_scope">&#40;002&#41; code block scope</a></li><li><a href="#001_how_to_load_data_from_file_and_loop_over_rows">&#40;001&#41; how to load data from file and loop over rows</a><ol><li><a href="#approach_1_with_a_hfun">Approach 1, with a <code>hfun</code></a></li><li><a href="#approach_2_with_a_page_variable_and_a_for_loop">Approach 2, with a page variable and a for loop</a></li></ol></li></ol></div>
+<h2 id="003_styling_of_code_output_blocks"><a href="#003_styling_of_code_output_blocks">&#40;003&#41; styling of code output blocks</a></h2>
+<p>At the moment &#40;August 2020&#41; no particular class is added on an output &#40;see https://github.com/tlienart/Franklin.jl/issues/531&#41;; you can still do something similar by adding a <code>@@code-output</code> &#40;or whatever appropriate name&#41; around the command that extracts the output and specify this in your css &#40;see <code>extras.css</code>&#41;:</p>
+<pre><code class="language-julia">x = 7</code></pre>
+<div class="code-output"><pre><code class="plaintext">7</code></pre></div>
+<p>If you find yourself writing that a lot, you should probably define a command like</p>
+<pre><code class="language-julia">\newcommand{\prettyshow}[1]{@@code-output \show{#1} @@}</code></pre>
+<p>and put it in your <code>config.md</code> file so that it&#39;s globally available.</p>
+<div class="code-output"><pre><code class="plaintext">7</code></pre></div>
 <h2 id="002_code_block_scope"><a href="#002_code_block_scope">&#40;002&#41; code block scope</a></h2>
 <p>On a single page all code blocks share their environment so</p>
 <pre><code class="language-julia">x = 5</code></pre>
