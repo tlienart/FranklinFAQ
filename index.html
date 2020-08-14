@@ -29,13 +29,13 @@ ls = latexify(empty_ary) # this is an L string</code></pre>
 \[
 \left[
 \begin{array}{cc}
--1.957632e6 & -1.955418e6 \\
-4.5572e-41 & 4.5572e-41 \\
+1.0e-45 & 1.0e-45 \\
+0.0 & 0.0 \\
 \end{array}
 \right]
 \]
 <h2 id="003_styling_of_code_output_blocks"><a href="#003_styling_of_code_output_blocks">&#40;003&#41; styling of code output blocks</a></h2>
-<p>At the moment &#40;August 2020&#41; no particular class is added on an output &#40;see https://github.com/tlienart/Franklin.jl/issues/531&#41;; you can still do something similar by adding a <code>@@code-output</code> &#40;or whatever appropriate name&#41; around the command that extracts the output and specify this in your css &#40;see <code>extras.css</code>&#41;:</p>
+<p>At the moment &#40;August 2020&#41; no particular class is added on an output &#40;see <a href="https://github.com/tlienart/Franklin.jl/issues/531">#531</a>&#41;; you can still do something similar by adding a <code>@@code-output</code> &#40;or whatever appropriate name&#41; around the command that extracts the output and specify this in your css &#40;see <code>extras.css</code>&#41;:</p>
 <pre><code class="language-julia">x = 7</code></pre>
 <div class="code-output"><pre><code class="plaintext">7</code></pre></div>
 <p>If you find yourself writing that a lot, you should probably define a command like</p>
