@@ -203,15 +203,19 @@ body { counter-reset: eqnum; }
 
 .katex { font-size: 1em !important; }
 
-.katex-display .katex {
-    display: inline-block; } /* overwrite katex settings */
+.katex-display {
+  position: relative;
+  counter-increment: eqnum;
+}
 
 .katex-display::after {
-    counter-increment: eqnum;
-    content: "(" counter(eqnum) ")";
-    position: relative;
-    float: right;
-    padding-right: 5px; }
+  content: "(" counter(eqnum) ")";
+  position: absolute;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
 
 /* ==================================================================
     CODE & HIGHLIGHT.JS

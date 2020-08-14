@@ -10,6 +10,21 @@ It's not meant to be beautiful, rather just show how to get specific stuff done.
 
 \toc
 
+## (004) use Latexify.jl
+
+Latexify produces a LaTeX string which should basically be passed to KaTeX. To do that you need to recuperate the output, extract the string and pass it into a maths block.
+
+```julia:lx1
+using Latexify
+empty_ary = Array{Float32, 2}(undef, 2, 2)
+ls = latexify(empty_ary) # this is an L string
+s = replace(ls.s, "\\begin{equation}" => "\$\$") # hide
+s = replace(s, "\\end{equation}" => "\$\$") # hide
+println(s) # hide
+```
+
+\textoutput{lx1}
+
 ## (003) styling of code output blocks
 
 At the moment (August 2020) no particular class is added on an output (see https://github.com/tlienart/Franklin.jl/issues/531); you can still do something similar by adding a `@@code-output` (or whatever appropriate name) around the command that extracts the output and specify this in your css (see `extras.css`):
