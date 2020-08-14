@@ -101,7 +101,7 @@ Writing the following
 <ul>
 {{for (name, alias) in members_from_csv}}
   <li>
-    <a href="https://github.com/{{fill alias}}">{{fill name}}</a>
+    <a href="https://github.com/{{alias}}">{{name}}</a>
   </li>
 {{end}}
 </ul>
@@ -114,7 +114,7 @@ gives:
 <ul>
 {{for (name, alias) in members_from_csv}}
   <li>
-    <a href="https://github.com/{{fill alias}}">{{fill name}}</a>
+    <a href="https://github.com/{{alias}}">{{name}}</a>
   </li>
 {{end}}
 </ul>

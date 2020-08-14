@@ -15,7 +15,7 @@ function hfun_members_table(params::Vector{String})::String
     io = IOBuffer()
     write(io, "<table>")
     write(io, "<tr><th>Name</th><th>GitHub alias</th></tr>")
-    for (name, alias) in eachrow(members[2:end,:])
+    for (name, alias) in eachrow(members)
         write(io, "<tr>")
         write(io, "<td>$name</td>")
         write(io, """<td><a href="https://github.com/$alias">$alias</a></td>""")
