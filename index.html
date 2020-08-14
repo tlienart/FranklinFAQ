@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+   <link rel="stylesheet" href="/FranklinFAQ/libs/katex/katex.min.css">
+     
    <link rel="stylesheet" href="/FranklinFAQ/libs/highlight/github.min.css">
    
   <link rel="stylesheet" href="/FranklinFAQ/css/franklin.css">
@@ -17,7 +18,20 @@
 <p>This website is meant to be a quick way to show how to do stuff that people ask, it will complement the <a href="https://franklinjl.org/">official documentation</a>.</p>
 <p>It&#39;s not meant to be beautiful, rather just show how to get specific stuff done.</p>
 <p><strong>Note</strong>: an important philosophy here is that if you can write a Julia function that would produce the HTML you want, then write that function and let Franklin call it.</p>
-<div class="franklin-toc"><ol><li><a href="#003_styling_of_code_output_blocks">&#40;003&#41; styling of code output blocks</a></li><li><a href="#002_code_block_scope">&#40;002&#41; code block scope</a></li><li><a href="#001_how_to_load_data_from_file_and_loop_over_rows">&#40;001&#41; how to load data from file and loop over rows</a><ol><li><a href="#approach_1_with_a_hfun">Approach 1, with a <code>hfun</code></a></li><li><a href="#approach_2_with_a_page_variable_and_a_for_loop">Approach 2, with a page variable and a for loop</a></li></ol></li></ol></div>
+<div class="franklin-toc"><ol><li><a href="#004_use_latexifyjl">&#40;004&#41; use Latexify.jl</a></li><li><a href="#003_styling_of_code_output_blocks">&#40;003&#41; styling of code output blocks</a></li><li><a href="#002_code_block_scope">&#40;002&#41; code block scope</a></li><li><a href="#001_how_to_load_data_from_file_and_loop_over_rows">&#40;001&#41; how to load data from file and loop over rows</a><ol><li><a href="#approach_1_with_a_hfun">Approach 1, with a <code>hfun</code></a></li><li><a href="#approach_2_with_a_page_variable_and_a_for_loop">Approach 2, with a page variable and a for loop</a></li></ol></li></ol></div>
+<h2 id="004_use_latexifyjl"><a href="#004_use_latexifyjl">&#40;004&#41; use Latexify.jl</a></h2>
+<p>Latexify produces a LaTeX string which should basically be passed to KaTeX. To do that you need to recuperate the output, extract the string and pass it into a maths block.</p>
+<pre><code class="language-julia">using Latexify
+empty_ary = Array{Float32, 2}(undef, 2, 2)
+ls = latexify(empty_ary) # this is an L string</code></pre>
+\[
+\left[
+\begin{array}{cc}
+3.435029e15 & 6.1746603e19 \\
+4.574e-41 & 4.574e-41 \\
+\end{array}
+\right]
+\]
 <h2 id="003_styling_of_code_output_blocks"><a href="#003_styling_of_code_output_blocks">&#40;003&#41; styling of code output blocks</a></h2>
 <p>At the moment &#40;August 2020&#41; no particular class is added on an output &#40;see https://github.com/tlienart/Franklin.jl/issues/531&#41;; you can still do something similar by adding a <code>@@code-output</code> &#40;or whatever appropriate name&#41; around the command that extracts the output and specify this in your css &#40;see <code>extras.css</code>&#41;:</p>
 <pre><code class="language-julia">x = 7</code></pre>
@@ -90,10 +104,15 @@ Liu Fengyun,liufengyun</code></pre>
 </ul>
 <div class="page-foot">
   <div class="copyright">
-    &copy; Thibaut Lienart. Last modified: August 12, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; Thibaut Lienart. Last modified: August 14, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
+    
+        <script src="/FranklinFAQ/libs/katex/katex.min.js"></script>
+<script src="/FranklinFAQ/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+
     
     
         <script src="/FranklinFAQ/libs/highlight/highlight.pack.js"></script>
