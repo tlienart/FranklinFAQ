@@ -2,6 +2,8 @@
 
 # Franklin FAQ
 
+\style{text-align:center;width:100%;display:inline-block;font-variant-caps:small-caps}{[**Click here to go to the source repo**](https://github.com/tlienart/FranklinFAQ)}
+
 This website is meant to be a quick way to show how to do stuff that people ask, it will complement the [official documentation](https://franklinjl.org/).
 
 It's not meant to be beautiful, rather just show how to get specific stuff done. If one block answers one of your question, make sure to check [the source](https://github.com/tlienart/FranklinFAQ/blob/master/index.md) to see how it was done.
