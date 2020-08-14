@@ -29,8 +29,8 @@ ls = latexify(empty_ary) # this is an L string</code></pre>
 \[
 \left[
 \begin{array}{cc}
-1.0e-45 & 1.0e-45 \\
-0.0 & 0.0 \\
+-1.8816454e25 & 0.0 \\
+4.5797e-41 & 0.0 \\
 \end{array}
 \right]
 \]
@@ -65,7 +65,7 @@ Liu Fengyun,liufengyun</code></pre>
 <li><p>see <code>utils.jl</code> for the definition of <code>hfun_members_table</code>; calling <code>&#123;&#123;members_table _assets/members.csv&#125;&#125;</code> gives</p>
 </li>
 </ul>
-<table><tr><th>Name</th><th>GitHub alias</th></tr><tr><td>Parker Moore</td><td><a href="https://github.com/parkr">parkr</a></td></tr><tr><td>Liu Fengyun</td><td><a href="https://github.com/liufengyun">liufengyun</a></td></tr></table>
+<table><tr><th>Name</th><th>GitHub alias</th></tr><tr><td>Eric Mill</td><td><a href="https://github.com/konklone">konklone</a></td></tr><tr><td>Parker Moore</td><td><a href="https://github.com/parkr">parkr</a></td></tr><tr><td>Liu Fengyun</td><td><a href="https://github.com/liufengyun">liufengyun</a></td></tr></table>
 <h3 id="approach_2_with_a_page_variable_and_a_for_loop"><a href="#approach_2_with_a_page_variable_and_a_for_loop">Approach 2, with a page variable and a for loop</a></h3>
 <ul>
 <li><p>see <code>config.md</code> for the definition of the <code>members_from_csv</code><em>global</em> page variable.</p>
@@ -76,7 +76,7 @@ Liu Fengyun,liufengyun</code></pre>
 &lt;ul&gt;
 &#123;&#123;for &#40;name, alias&#41; in members_from_csv&#125;&#125;
   &lt;li&gt;
-    &lt;a href&#61;&quot;https://github.com/&#123;&#123;fill alias&#125;&#125;&quot;&gt;&#123;&#123;fill name&#125;&#125;&lt;/a&gt;
+    &lt;a href&#61;&quot;https://github.com/&#123;&#123;alias&#125;&#125;&quot;&gt;&#123;&#123;name&#125;&#125;&lt;/a&gt;
   &lt;/li&gt;
 &#123;&#123;end&#125;&#125;
 &lt;/ul&gt;
