@@ -4,7 +4,7 @@
 
 This website is meant to be a quick way to show how to do stuff that people ask, it will complement the [official documentation](https://franklinjl.org/).
 
-It's not meant to be beautiful, rather just show how to get specific stuff done.
+It's not meant to be beautiful, rather just show how to get specific stuff done. If one block answers one of your question, make sure to check [the source](https://github.com/tlienart/FranklinFAQ/blob/master/index.md) to see how it was done.
 
 **Note**: an important philosophy here is that if you can write a Julia function that would produce the HTML you want, then write that function and let Franklin call it.
 
@@ -13,6 +13,8 @@ It's not meant to be beautiful, rather just show how to get specific stuff done.
 ## (004) use Latexify.jl
 
 Latexify produces a LaTeX string which should basically be passed to KaTeX. To do that you need to recuperate the output, extract the string and pass it into a maths block.
+
+Here there's a bug with `\begin{equation}` in Franklin (issue [#584](https://github.com/tlienart/Franklin.jl/issues/584)) which is why I'm replacing those with `$$` but it should be fixed in the near future so that you wouldn't have to use these two "replace" lines:
 
 ```julia:lx1
 using Latexify
