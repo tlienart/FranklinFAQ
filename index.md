@@ -31,7 +31,7 @@ println(s) # hide
 
 ## (003) styling of code output blocks
 
-At the moment (August 2020) no particular class is added on an output (see https://github.com/tlienart/Franklin.jl/issues/531); you can still do something similar by adding a `@@code-output` (or whatever appropriate name) around the command that extracts the output and specify this in your css (see `extras.css`):
+At the moment (August 2020) no particular class is added on an output (see [#531](https://github.com/tlienart/Franklin.jl/issues/531)); you can still do something similar by adding a `@@code-output` (or whatever appropriate name) around the command that extracts the output and specify this in your css (see `extras.css`):
 
 ```julia:cos1
 x = 7
