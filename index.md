@@ -21,13 +21,14 @@ There are many ways you can use this, one possible way is to wrap it in a comman
 
 @def alist = ["<li>item $i</li>" for i in 1:10]
 
+\label{pgex}
 \pglist{alist}{4}
 
 Now observe that
 
-* [page 1](/1/) has items 1-4
-* [page 2](/2/) has items 5-8
-* [page 3](/3/) has items 9-10
+* [page 1](/1/#pgex) has items 1-4
+* [page 2](/2/#pgex) has items 5-8
+* [page 3](/3/#pgex) has items 9-10
 
 ## (004) use Latexify.jl
 
