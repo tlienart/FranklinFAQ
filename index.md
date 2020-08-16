@@ -19,7 +19,7 @@ There are many ways you can use this, one possible way is to wrap it in a comman
 
 \newcommand{\pglist}[2]{~~~<ul>~~~{{paginate #1 #2}}~~~</ul>~~~}
 
-@def alist = ["<li>item $i</li>" for i in 1:5]
+@def alist = ["<li>item $i</li>" for i in 1:10]
 
 \pglist{alist}{4}
 
