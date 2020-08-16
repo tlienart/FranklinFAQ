@@ -142,7 +142,7 @@ html {
 
 /* spacing between bullet points */
 .franklin-content li p {
-        margin: 10px 0; }
+        margin: 0; }
 
 .franklin-content a {
     color: #004de6;

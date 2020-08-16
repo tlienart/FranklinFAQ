@@ -4,13 +4,30 @@
 
 \style{text-align:center;width:100%;display:inline-block;font-variant-caps:small-caps}{[**Click here to go to the source repo**](https://github.com/tlienart/FranklinFAQ)}
 
-This website is meant to be a quick way to show how to do stuff that people ask, it will complement the [official documentation](https://franklinjl.org/).
+This website is meant to be a quick way to show how to do stuff that people ask (or that I thought would be a nice demo), it will complement the [official documentation](https://franklinjl.org/).
 
 It's not meant to be beautiful, rather just show how to get specific stuff done. If one block answers one of your question, make sure to check [the source](https://github.com/tlienart/FranklinFAQ/blob/master/index.md) to see how it was done.
 
 **Note**: an important philosophy here is that if you can write a Julia function that would produce the HTML you want, then write that function and let Franklin call it.
 
 \toc
+
+## (005) pagination
+
+Pagination works with `{{paginate list num}}` where `list` is a page variable with elements that you want to paginate (either a list or tuple), and `num` is the number of elements you want per page.
+There are many ways you can use this, one possible way is to wrap it in a command if you want to insert this in an actual list which is what is demoed here:
+
+\newcommand{\pglist}[2]{~~~<ul>~~~{{paginate #1 #2}}~~~</ul>~~~}
+
+@def alist = ["<li>item $i</li>" for i in 1:5]
+
+\pglist{alist}{4}
+
+Now observe that
+
+* [page 1](/1/) has items 1-4
+* [page 2](/2/) has items 5-8
+* [page 3](/3/) has items 9-10
 
 ## (004) use Latexify.jl
 
