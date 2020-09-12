@@ -1,5 +1,7 @@
 # FranklinFAQ
 
+**This repo has now been integrated in the main Franklin repo**
+
 Trying to have demos for things people ask about.
 
 You can look at [the page](https://tlienart.github.io/FranklinFAQ/) with the questions and answers or at its source here (the page also makes reference to elements of the source).
